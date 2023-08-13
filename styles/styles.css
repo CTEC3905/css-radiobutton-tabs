@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: #fff;
 }
 h1 {
   font-size: 1.25em;
@@ -12,14 +13,10 @@ h1 {
 h2 {
   margin-top: 0;
 }
-footer a:link,
-footer a:visited {
-  color: #444;
+/* leaves room for footer: */
+main {
+  padding-bottom: 2em;
 }
-footer a:hover {
-  color: #888;
-}
-
 
 /*
   Hides the radio buttons ('input' tags) themselves, but not
@@ -30,24 +27,17 @@ footer a:hover {
 main > input,
 section {
   display: none;
+}
+section {
   padding: 1em;
   clear: both;
 }
-section footer {
-  position: absolute;
-  bottom: 0;
-  background: #ccc;
-  width: 100%;
-  margin-left: -1em;
+section p {
+  font-size: 1.25em;
+  line-height: 1.25em;
 }
-section footer p {
-  padding: 0 1em;
-  line-height: 1.5em;
-  text-align: center;
-}
-/*
-  displays and styles 'label' tags (for radio button 'input' tags)
-*/
+
+/* displays and styles 'label' tags (for radio button 'input' tags) */
 label {
   display: block;
   box-sizing: border-box;
@@ -61,12 +51,11 @@ label {
   line-height: 3em;
   border-right: 1px solid #444;
 }
-/* hides the tab text but leaves the icons visible: */
-label span {
-  display: none;
-}
-label:last-child {
+label:last-of-type {
   border-right: none;
+}
+.fa {
+  margin-right: .5em;
 }
 
 /*
@@ -98,46 +87,36 @@ label:last-child {
   color: #090;
 }
 
-.tab-content {
-  background: #fff;
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ccc;
 }
-.fa {
-  margin-right: 10px;
+footer p {
+  padding: 0 1em;
+  line-height: 1.5em;
+  text-align: center;
 }
 
 
-/* --------- Basic animation --------- */
 /*
-  this can all be commented out without
-  affecting the functionality of the tabs
+  Basic animation:
+  can be omitted without affecting tab function
 */
 
 .tab_container section * {
-  animation: fadeIn 0.7s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
-
   0% { 
   	opacity: 0;
   }
-
   100% { 
   	opacity: 1;
   }
-  
 }
-
-
-/* --------- table styles below here --------- */
-
-
-/* --------- unordered list styles below here --------- */
-
-
-/* --------- definition list styles below here --------- */
-
-
 
 
 /* --------- Basic responsive breakpoint --------- */
@@ -146,7 +125,7 @@ label:last-child {
   h1 {
     font-size: 2em;
   }
-  /* shows the tab text and the icons: */
+  /* shows the tab text: */
   label span {
     display: inline;
   }
