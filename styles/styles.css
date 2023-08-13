@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  background: #fff;
 }
 h1 {
   font-size: 1.25em;
@@ -19,10 +18,8 @@ main {
 }
 
 /*
-  Hides the radio buttons ('input' tags) themselves, but not
-  their labels, which form the tabs.
-  
-  Also sets styles for the section tags and hides them.
+  Hides radio button 'input' tags but not their labels,
+  also styles section tags and hides them:
 */
 main > input,
 section {
@@ -57,18 +54,17 @@ label:last-of-type {
 .fa {
   margin-right: .5em;
 }
+/* optional: hide tab text for smaller screens: */
+label span {
+  display: none;
+}
 
 /*
-  The radio button label tags form the 'tabs' used to show the 
-  sections - when clicked, the input tag 'checked' attribute 
-  becomes true, so the section tags with IDs 'content1-3' can
-  be targeted *in relation* to each radio button.
+  Radio button label tags are clickable 'tabs' that show the sections.
+  When selected, the related (~) section (IDs content1-3) is made 
+  visible by changing its display from 'none' to 'block'.
 
-  This changes the display of specific section elements (with
-  IDs 'content1-3') from 'none' to 'block', but *only when* the 
-  associated and preceding (~) radio button becomes 'checked'. 
-
-  For the CSS3 ~ selector see:
+  CSS ~ sibling selector:
   http://www.w3schools.com/cssref/sel_gen_sibling.asp
 */
 #tab1:checked ~ #content1,
@@ -76,9 +72,7 @@ label:last-of-type {
 #tab3:checked ~ #content3 {
   display: block;
 }
-/*
-  Styles label elements (tabs) *only* when they're 'checked'
-*/
+/* styles checked label elements (tabs) */
 [id^="tab"]:checked + label {
   background: #ccc;
   color: #222;
@@ -100,15 +94,10 @@ footer p {
 }
 
 
-/*
-  Basic animation:
-  can be omitted without affecting tab function
-*/
-
+/* optional tab content animation, can be omitted */
 .tab_container section * {
   animation: fadeIn 0.5s ease-in-out;
 }
-
 @keyframes fadeIn {
   0% { 
   	opacity: 0;
@@ -125,7 +114,7 @@ footer p {
   h1 {
     font-size: 2em;
   }
-  /* shows the tab text: */
+  /* optional show tab text for larger screens: */
   label span {
     display: inline;
   }
